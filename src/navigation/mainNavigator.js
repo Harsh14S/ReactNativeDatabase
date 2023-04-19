@@ -6,6 +6,8 @@ import UpdateUser from '../components/UpdateUser';
 import AddNewUser from '../components/AddNewUser';
 import UserDataListing from '../components/UserDataListing';
 import DeepLink from '../components/DeepLink';
+import EventListener from '../components/EventListener';
+import MapViewScreen from '../components/MapViewScreen';
 const Stack = createNativeStackNavigator();
 
 export default MainNavigator = () => {
@@ -21,6 +23,8 @@ export default MainNavigator = () => {
       <Stack.Screen name='addNewUser' component={AddNewUser} />
       <Stack.Screen name='updateUser' component={UpdateUser} />
       <Stack.Screen name='deepLinking' component={DeepLink} />
+      <Stack.Screen name='eventListener' component={EventListener} />
+      <Stack.Screen name='mapView' component={MapViewScreen} />
     </Stack.Navigator>
   )
 }

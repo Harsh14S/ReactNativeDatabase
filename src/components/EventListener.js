@@ -3,28 +3,26 @@ import React, { useEffect, useState } from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS } from '../common/Colors';
 import { CommonStyles } from '../common/Styles';
-import HeaderHome from '../common/Headers/HeaderHome';
 import Button from '../common/CommonComponents/Button';
-
-import { openDatabase } from 'react-native-sqlite-storage'
 import IconIndex from '../assets/Icons/IconIndex';
 import { useIsFocused } from '@react-navigation/native';
+import HeaderEventListener from '../common/Headers/HeaderEventListener';
 
-let db = openDatabase({ name: 'UserDatabase.db' });
-
-export default HomeScreen = ({ navigation }) => {
+export default EventListener = ({ navigation }) => {
+  const [val, useVal] = useState(0);
   const isFocused = useIsFocused();
+  // useEffect(() => {
+  //   console.log("UseEffect starts");
+  // }, [])
 
   return (
     <View style={[styles.container, CommonStyles.verticalPadding]}>
-      <HeaderHome />
-      {/* <View style={{ flex: 1, justifyContent: 'flex-end', width: '100%', paddingHorizontal: RFPercentage(2), paddingVertical: RFPercentage(1.5) }}>
-      </View> */}
+      <HeaderEventListener />
+      <View style={{ flex: 1, justifyContent: 'flex-end', width: '100%', paddingHorizontal: RFPercentage(2), paddingVertical: RFPercentage(1.5) }}>
+        <Text>{ }</Text>
+      </View>
       <View style={{ flex: 1, width: '100%', paddingHorizontal: RFPercentage(5), justifyContent: 'center' }}>
-        <Button title={'User Data'} onPress={() => navigation.navigate('userDataListing')} />
-        <Button title={'Deep Linking'} onPress={() => navigation.navigate('deepLinking')} />
-        <Button title={'Event Listener'} onPress={() => navigation.navigate('eventListener')} />
-        <Button title={'Map View'} onPress={() => navigation.navigate('mapView')} />
+        <Button title={'Click'} onPress={() => { }} />
       </View>
     </View>
   );

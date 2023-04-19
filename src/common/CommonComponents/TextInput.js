@@ -19,6 +19,8 @@ export default InputBox = ({
       <TextInput
         {...props}
         autoCorrect={false}
+        // keyboardType='numeric'
+        // dataDetectorTypes={'phoneNumber'}
         placeholder={placeholder}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

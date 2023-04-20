@@ -27,13 +27,12 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        <intent-filter>AIzaSyA_ytvniIVKFoF8aEfW8L3xFF2uBFtvgJQ
+        <!-- <intent-filter>
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <!-- Accepts URIs that begin with "example://gizmos” -->
           <data android:scheme="https" android:host="reactnativedatabase.page.link" />
-        </intent-filter>
+        </intent-filter> -->
       </activity>
     </application>
 </manifest>

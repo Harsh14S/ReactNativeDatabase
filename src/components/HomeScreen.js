@@ -6,7 +6,7 @@ import { CommonStyles } from '../common/Styles';
 import HeaderHome from '../common/Headers/HeaderHome';
 import Button from '../common/CommonComponents/Button';
 
-import { openDatabase } from 'react-native-sqlite-storage'
+import { openDatabase } from 'react-native-sqlite-storage';
 import IconIndex from '../assets/Icons/IconIndex';
 import { useIsFocused } from '@react-navigation/native';
 

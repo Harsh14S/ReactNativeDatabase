@@ -8,6 +8,10 @@ import UserDataListing from '../components/UserDataListing';
 import DeepLink from '../components/DeepLink';
 import EventListener from '../components/EventListener';
 import MapViewScreen from '../components/MapViewScreen';
+import Messaging from '../components/Messaging';
+import StripePayment from '../components/StripePayment';
+import GatewayPayment from '../components/GatewayPayment';
+import KeyboardAvoiding from '../components/KeyboardAvoiding';
 const Stack = createNativeStackNavigator();
 
 export default MainNavigator = () => {
@@ -25,6 +29,10 @@ export default MainNavigator = () => {
       <Stack.Screen name='deepLinking' component={DeepLink} />
       <Stack.Screen name='eventListener' component={EventListener} />
       <Stack.Screen name='mapView' component={MapViewScreen} />
+      <Stack.Screen name='messaging' component={Messaging} />
+      <Stack.Screen name='stripePayment' component={StripePayment} />
+      <Stack.Screen name='gatewayPayment' component={GatewayPayment} />
+      <Stack.Screen name='keyboardAvoiding' component={KeyboardAvoiding} />
     </Stack.Navigator>
   )
 }

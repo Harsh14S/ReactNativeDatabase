@@ -1,4 +1,4 @@
-import { FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { AppState, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS } from '../common/Colors';
@@ -11,9 +11,20 @@ import HeaderEventListener from '../common/Headers/HeaderEventListener';
 export default EventListener = ({ navigation }) => {
   const [val, useVal] = useState(0);
   const isFocused = useIsFocused();
+
+  const [appState, setAppState] = useState(AppState.currentState);
+  const handleAppStateChange = (state) => {
+    setAppState(state);
+  }
+  useEffect(() => {
+    AppState.addEventListener('change', handleAppStateChange);
+    return (() => {
+      AppState.removeEventListener('change', handleAppStateChange);
+    })
+  }, []);
   // useEffect(() => {
-  //   console.log("UseEffect starts");
-  // }, [])
+  //   console.log(appState);
+  // });
 
   return (
     <View style={[styles.container, CommonStyles.verticalPadding]}>

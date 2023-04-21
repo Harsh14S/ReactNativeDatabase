@@ -13,6 +13,8 @@ import IconIndex from '../assets/Icons/IconIndex';
 export default MapViewScreen = ({ navigation }) => {
 
   const [markerVisible, setMarkerVisible] = useState(false);
+  const [disable, setDisable] = useState(true);
+
   const [initLocation, setInitLocation] = useState({
     latitude: 31.078387136880117,
     longitude: 81.32856114547349,
@@ -21,8 +23,6 @@ export default MapViewScreen = ({ navigation }) => {
     latitude: null,
     longitude: null,
   });
-
-  const mapRef = useRef(null);
 
   useEffect(() => {
     getCurntLocation()
@@ -44,10 +44,11 @@ export default MapViewScreen = ({ navigation }) => {
   const getCurntLocation = async () => {
     await GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
-      timeout: 1000,
+      timeout: 5000,
     })
       .then(location => {
         setCurrentLocation(location);
+        setDisable(false)
         console.log(location);
       })
       .catch(error => {
@@ -78,9 +79,12 @@ export default MapViewScreen = ({ navigation }) => {
           }
 
         </MapView>
-        <TouchableOpacity style={styles.gpsBtnContainer} onPress={() => {
-          setMarkerVisible(!markerVisible)
-        }}>
+        <TouchableOpacity
+          style={[styles.gpsBtnContainer, { opacity: disable ? 0.4 : 1 }]}
+          disabled={disable}
+          onPress={() => {
+            setMarkerVisible(true)
+          }}>
           <Image source={IconIndex.gpsBtn} style={styles.gpsBtnImg} />
         </TouchableOpacity>
       </View>

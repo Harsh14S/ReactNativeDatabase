@@ -1,4 +1,4 @@
-import { FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { AppState, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { COLORS } from '../common/Colors';
@@ -25,6 +25,10 @@ export default HomeScreen = ({ navigation }) => {
         <Button title={'Deep Linking'} onPress={() => navigation.navigate('deepLinking')} />
         <Button title={'Event Listener'} onPress={() => navigation.navigate('eventListener')} />
         <Button title={'Map View'} onPress={() => navigation.navigate('mapView')} />
+        <Button title={'Messaging'} onPress={() => navigation.navigate('messaging')} />
+        <Button title={'Stripe Payment'} onPress={() => navigation.navigate('stripePayment')} />
+        <Button title={'Gateway Payment'} onPress={() => navigation.navigate('gatewayPayment')} />
+        <Button title={'Keyboard Avoiding View'} onPress={() => navigation.navigate('keyboardAvoiding')} />
       </View>
     </View>
   );

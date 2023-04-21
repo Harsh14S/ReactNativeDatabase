@@ -1,0 +1,28 @@
+diff --git a/node_modules/react-native-sqlite-storage/react-native.config.js b/node_modules/react-native-sqlite-storage/react-native.config.js
+index dc150a9..a5a1e20 100644
+--- a/node_modules/react-native-sqlite-storage/react-native.config.js
++++ b/node_modules/react-native-sqlite-storage/react-native.config.js
+@@ -2,7 +2,7 @@ module.exports = {
+ 	dependency: {
+ 		platforms: {
+ 			ios: {
+-				project: './platforms/ios/SQLite.xcodeproj'
++				// project: './platforms/ios/SQLite.xcodeproj'
+ 			},
+ 			android: {
+ 				sourceDir: './platforms/android'
+@@ -11,10 +11,10 @@ module.exports = {
+ 				sourceDir: './platforms/windows',
+ 				solutionFile: 'SQLitePlugin.sln',
+ 				projects: [
+-				  {
+-					projectFile: 'SQLitePlugin/SQLitePlugin.vcxproj',
+-					directDependency: true,
+-				  }
++					{
++						projectFile: 'SQLitePlugin/SQLitePlugin.vcxproj',
++						directDependency: true,
++					}
+ 				],
+ 			}
+ 		}

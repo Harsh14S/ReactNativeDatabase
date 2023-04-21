@@ -297,7 +297,7 @@ PODS:
     - glog
   - react-native-geolocation-service (5.3.1):
     - React
-  - react-native-maps (1.5.0):
+  - react-native-maps (1.6.0):
     - React-Core
   - react-native-safe-area-context (4.5.1):
     - RCT-Folly
@@ -403,9 +403,7 @@ PODS:
     - RNFBApp
   - RNGestureHandler (2.9.0):
     - React-Core
-  - RNPermissions (3.8.0):
-    - React-Core
-  - RNReanimated (3.0.2):
+  - RNReanimated (3.1.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -435,6 +433,42 @@ PODS:
   - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
+  - Stripe (23.5.1):
+    - StripeApplePay (= 23.5.1)
+    - StripeCore (= 23.5.1)
+    - StripePayments (= 23.5.1)
+    - StripePaymentsUI (= 23.5.1)
+    - StripeUICore (= 23.5.1)
+  - stripe-react-native (0.26.0):
+    - React-Core
+    - Stripe (~> 23.5.0)
+    - StripeApplePay (~> 23.5.0)
+    - StripeFinancialConnections (~> 23.5.0)
+    - StripePayments (~> 23.5.0)
+    - StripePaymentSheet (~> 23.5.0)
+    - StripePaymentsUI (~> 23.5.0)
+  - StripeApplePay (23.5.1):
+    - StripeCore (= 23.5.1)
+  - StripeCore (23.5.1)
+  - StripeFinancialConnections (23.5.1):
+    - StripeCore (= 23.5.1)
+    - StripeUICore (= 23.5.1)
+  - StripePayments (23.5.1):
+    - StripeCore (= 23.5.1)
+    - StripePayments/Stripe3DS2 (= 23.5.1)
+  - StripePayments/Stripe3DS2 (23.5.1):
+    - StripeCore (= 23.5.1)
+  - StripePaymentSheet (23.5.1):
+    - StripeApplePay (= 23.5.1)
+    - StripeCore (= 23.5.1)
+    - StripePayments (= 23.5.1)
+    - StripePaymentsUI (= 23.5.1)
+  - StripePaymentsUI (23.5.1):
+    - StripeCore (= 23.5.1)
+    - StripePayments (= 23.5.1)
+    - StripeUICore (= 23.5.1)
+  - StripeUICore (23.5.1):
+    - StripeCore (= 23.5.1)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -481,9 +515,9 @@ DEPENDENCIES:
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBDynamicLinks (from `../node_modules/@react-native-firebase/dynamic-links`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "stripe-react-native (from `../node_modules/@stripe/stripe-react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -496,6 +530,14 @@ SPEC REPOS:
     - GoogleUtilities
     - libevent
     - PromisesObjC
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripeFinancialConnections
+    - StripePayments
+    - StripePaymentSheet
+    - StripePaymentsUI
+    - StripeUICore
 
 EXTERNAL SOURCES:
   boost:
@@ -580,12 +622,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/dynamic-links"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNPermissions:
-    :path: "../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  stripe-react-native:
+    :path: "../node_modules/@stripe/stripe-react-native"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -619,7 +661,7 @@ SPEC CHECKSUMS:
   React-jsinspector: d5ce2ef3eb8fd30c28389d0bc577918c70821bd6
   React-logger: 9332c3e7b4ef007a0211c0a9868253aac3e1da82
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
-  react-native-maps: d9a11cd3ed520155029c37516b68e5acc696d407
+  react-native-maps: fe40d1b421dd3ac86d2b8f526b2abc994e93a8d9
   react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
   react-native-sqlite-storage: f6d515e1c446d1e6d026aa5352908a25d4de3261
   React-perflogger: 43392072a5b867a504e2b4857606f8fc5a403d7f
@@ -639,11 +681,19 @@ SPEC CHECKSUMS:
   RNFBApp: 55dbfc574e5ae414f2984394934f79f87eb4b050
   RNFBDynamicLinks: 82e9846916034c287333ebbcbdbc31435796663c
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
-  RNPermissions: b0e38eca4ce809f39a1655c7dfb8fe957b844cfc
-  RNReanimated: f0dd6b881808e635ef0673f89642937d6c141314
+  RNReanimated: b1220a0e5168745283ff5d53bfc7d2144b2cee1b
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
+  Stripe: d3dc7e6a9ac47a75ddb28ca9622f0e96c63398c9
+  stripe-react-native: 23f5586ac954f54c5723c08be4f1a65d97f797eb
+  StripeApplePay: b72a579021ed2d859a1be070ae6f3bad4eea2624
+  StripeCore: a6511a9b7481571dca38608e2d1fe2b56a753975
+  StripeFinancialConnections: 39a0f0e25509cebc3e28023e7ada5a5a59b80109
+  StripePayments: b0117a9d2857334b1f680b63b7eaf7f1fe6ebcf2
+  StripePaymentSheet: 30d6f1f89e62b789ce22502c093f1f04785640df
+  StripePaymentsUI: c10ddf9939e197b99a1123c6ca6075969a795f43
+  StripeUICore: 5dc852ac5e4302721b7793ee16b74ad679dd5ffb
   Yoga: ba09b6b11e6139e3df8229238aa794205ca6a02a
 
-PODFILE CHECKSUM: acedbf16ecc739d89cd14039e325e95ff30e895b
+PODFILE CHECKSUM: b1cd71a1d318042529ff74771d04af10a884a9f7
 
 COCOAPODS: 1.12.0
